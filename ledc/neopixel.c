@@ -1,18 +1,19 @@
- /*
- * Neopixel/WS2812 driver
+/*
+ * LEDC-backed Neopixel/WS2812 driver (work in progress)
  *
  * Alexander Magdaleno
  *
+ * This copy starts from the regular backend and can now be changed independently.
  * The bit-level send path is adapted from sample code by Julie Zelenski, Feb 2024.
  * send_bit is hers verbatim (assembly, see neo_timing.s); send_byte and
  * send_pixel_color follow her structure, extended by me to take the target pin's
  * data register and to apply brightness scaling. Everything else here is mine.
  */
-#include "gl.h"
-#include "timer.h"
-#include "uart.h"
-#include "malloc.h"
-#include "neopixel.h"
+#include <gl.h>
+#include <timer.h>
+#include <uart.h>
+#include <malloc.h>
+#include <neopixel.h>
 
 // Taken from internal gpio.c functions to allow for any pin to be used as the LED data output pin without having to internally change memory addresses or bit masks
 // These functions are not available to the caller

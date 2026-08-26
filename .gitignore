@@ -1,0 +1,18 @@
+# Build directories
+build/
+
+# Compiler, assembler, linker, and binary outputs
+*.o
+*.d
+*.a
+*.elf
+*.bin
+*.map
+*.list
+
+# Editor/compiler temporary files
+*~
+
+# Local build configurations
+Makefile
+Makefile.*

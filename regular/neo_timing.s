@@ -1,5 +1,5 @@
 # Julie Zelenski, Feb 2024
-# Sample assembly to drive a Neopixel/WS8212
+# Sample assembly for the regular GPIO NeoPixel/WS8212 backend
 #
 # if zero bit, hold data high 200-500 nanosecond
 # if one bit, hold data high 550-850 nanosecond (2x width of zero bit)
@@ -26,4 +26,3 @@
         addi a3,a3,-1
         bne a3,zero,.-4
         ret
-

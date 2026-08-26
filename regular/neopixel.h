@@ -1,5 +1,5 @@
 /*
- * This module provides a simple interface for driving Neopixel/WS2812 LEDs.
+ * This module provides the regular GPIO/assembly interface for driving Neopixel/WS2812 LEDs.
  * The interface is inspired by the Adafruit Neopixel library, but all of the
  * code here is written by me, Alexander Magdaleno.
  */

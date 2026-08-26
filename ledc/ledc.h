@@ -1,5 +1,5 @@
 //
-// Created by alexa on 8/22/2026.
+// LEDC backend. Created by alexa on 8/22/2026.
 //
 
 #ifndef NEOPIXEL_LEDC_H
