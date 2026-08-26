@@ -31,23 +31,6 @@ support library and needs its headers and lib at build time:
 
 Toolchain: `riscv64-unknown-elf-gcc` / `-as`, built for `-march=rv64im -mabi=lp64`.
 
-## Wiring
-
-| Strip | Board |
-| --- | --- |
-| DIN | any GPIO pin (passed to `neo_new`) |
-| 5V | 5V supply |
-| GND | shared ground with the board |
-
-Two things that bite people:
-
-- **Power.** A WS2812 draws up to ~60 mA at full white, so even a 12-pixel ring
-  can pull most of an amp. Drive the strip from a dedicated 5V supply, not from
-  the board, and tie the grounds together.
-- **Logic level.** The D1's GPIO drives 3.3V into a 5V-logic part. In practice
-  this usually works, but it is out of spec, and a level shifter is the correct
-  fix if you see flicker or a wrong first pixel.
-
 ## API
 
 ```c
@@ -140,8 +123,3 @@ and the public interface — is mine.
 The interface is inspired by the [Adafruit NeoPixel
 library](https://github.com/adafruit/Adafruit_NeoPixel), but no code was taken
 from it.
-
-## License
-
-Not yet determined. The send path above is not my code to license, so terms are
-pending.
