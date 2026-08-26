@@ -19,32 +19,6 @@
 #define LATCH_DELAY 55 // in micro seconds
 #define MAX_BRIGHTNESS 255
 
-enum
-{
-    GROUP_B = 0, GROUP_C, GROUP_D, GROUP_E, GROUP_F, GROUP_G
-};
-
-typedef struct
-{
-    unsigned int group;
-    unsigned int pin_index;
-} gpio_pin_t;
-
-static gpio_pin_t get_group_and_index(gpio_id_t gpio)
-{
-    gpio_pin_t gp;
-    gp.group = gpio >> 8;
-    gp.pin_index = gpio & 0xff; // lower 2 hex digits
-    return gp;
-}
-
-static volatile unsigned int *get_data_reg(unsigned int group)
-{
-    unsigned int *base = (unsigned int *)0x02000010; // base gpio address + 16 since dat is 16 from cfg
-    unsigned int offset = 12 * (group + 1); // The distance between between pin group dat is 0x30 = 48. unsigned int is scaled by 4 so we want to add 12 between each pin
-    return base + offset;
-}
-
 // End of gpio.c functions
 
 // Julie Zelenski
